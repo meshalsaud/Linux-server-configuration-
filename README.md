@@ -31,3 +31,5 @@
 * `sudo ufw deny 22`
 
 now enable UFW `sudo ufw enable`
+
+## Use [Fail2Ban](http://www.fail2ban.org/wiki/index.php/Main_Page) to ban attackers:
