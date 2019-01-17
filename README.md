@@ -81,3 +81,24 @@ UTC
 * GRANT ALL ON SCHEMA public TO catalog;
 * `\q` then `exit`
 * Run `$ python database_setup.py`
+
+* Create a new Linux user called `catalog`: `sudo adduser catalog`
+* sudo visudo 
+```
+root    ALL=(ALL:ALL) ALL
+grader  ALL=(ALL:ALL) ALL
+catalog  ALL=(ALL:ALL) ALL
+```
+* logged as catalog `su - catalog ` and create catalog database `createdb catalog`
+* `psql` then `\l` we will see catalog database\
+* `\q`
+* back to grader user
+
+
+## Install git:
+* sudo apt-get install git
+
+## Deploy  Item Catalog project:
+* create `/var/www/catalog/`
+* `cd /var/www/catalog`
+* `sudo git clone 
