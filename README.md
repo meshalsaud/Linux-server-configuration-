@@ -59,7 +59,8 @@ now enable UFW `sudo ufw enable`
 ##  Configure the local timezone to UTC
 * run `sudo dpkg-reconfigure tzdata`
 THEN 
-* Choose ```
+* Choose 
+```
 None of them
 UTC
 ```
