@@ -193,6 +193,6 @@ application.secret_key ='super-secret-key'
 * Always use command `sudo service apache2 resatrt` to restart apache server 
 
 ## Great people write great README :
-* (https://github.com/boisalai/udacity-linux-server-configuration)
-* (https://github.com/stueken/FSND-P5_Linux-Server-Configuration)
-* (https://github.com/rrjoson/udacity-linux-server-configuration)
+* https://github.com/boisalai/udacity-linux-server-configuration
+* https://github.com/stueken/FSND-P5_Linux-Server-Configuration
+* https://github.com/rrjoson/udacity-linux-server-configuration
