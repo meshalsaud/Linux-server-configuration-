@@ -110,7 +110,10 @@ catalog  ALL=(ALL:ALL) ALL
   `engine = create_engine('postgresql://catalog:catalog@localhost/catalog')`
   
 ## Authenticate login through Google
-
+* go google cloud console >APIs & Services > credentials 
+* creat Oauth client ID
+* http://35.196.5.159.xip.io add this uri to authorized JavaScript origins
+* add http://35.196.5.159.xip.io/login and http://35.196.5.159.xip.io/gconnect to Authorized redirect URIs
 
 ## nstall the virtual environment and dependencies
 * While logged in as `grader` Install `$ sudo apt-get install python-pip`
@@ -133,3 +136,51 @@ pip install psycopg2
 * Deactivate the virtual environment: `deactivate`
 
  
+## Set up and enable a virtual host
+* Create /etc/apache2/sites-available/catalog.conf and add the following lines to configure the virtual host:
+```
+<VirtualHost *:80>
+      ServerName 35.196.5.159
+      ServerAdmin admin@35.196.5.159
+ServerAlias 159.5.196.35.bc.googleusercontent.com
+WSGIDaemonProcess catalog python-path=/var/www/catalog:/var/www/catalog/venv/lib/python2.7/site-packages
+    WSGIProcessGroup catalog
+      WSGIScriptAlias / /var/www/catalog/catalog.wsgi
+      <Directory /var/www/catalog/catalog/>
+          Order allow,deny
+          Allow from all
+      </Directory>
+      Alias /static /var/www/catalog/catalog/static
+      <Directory /var/www/catalog/catalog/static/>
+          Order allow,deny
+          Allow from all
+      </Directory>
+      ErrorLog ${APACHE_LOG_DIR}/error.log
+      LogLevel warn
+      CustomLog ${APACHE_LOG_DIR}/access.log combined
+  </VirtualHost>
+```
+* Enable virtual host: `sudo a2ensite catalog`
+* Reload Apache: `sudo service apache2 reload `
+
+## Set up the Flask application
+* Create /var/www/catalog/catalog.wsgi file add the following lines:
+```
+activate_this = '/var/www/catalog/catalog/venv/bin/activate_this.py'
+execfile(activate_this, dict(__file__=activate_this))
+
+
+import sys
+import logging
+logging.basicConfig(stream=sys.stderr)
+sys.path.insert(0, "/var/www/catalog/")
+
+from catalog import app as application
+application.secret_key ='super-secret-key'
+```
+* sudo service apache2 restart
+
+### Disable the default Apache site
+* `sudo a2dissite 000-default.conf`
+* `sudo service apache2 reload`
+
