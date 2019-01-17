@@ -21,4 +21,13 @@
 * Looking for 22 and change it to 2200
 * Restart SSH: `$ sudo service ssh restart`
 
+## Configure firewall (ufw):
+* `sudo ufw status`
+* `sudo ufw default deny incoming`
+* `sudo ufw default allow outgoing`
+* `sudo ufw allow 2200/tcp`
+* `sudo ufw allow www`
+* `sudo ufw allow 123/udp`
+* `sudo ufw deny 22`
 
+now enable UFW `sudo ufw enable`
