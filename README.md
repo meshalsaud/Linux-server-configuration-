@@ -109,3 +109,27 @@ catalog  ALL=(ALL:ALL) ALL
 *  In `database.py` replace `engine = create_engine("sqlite:///catalog.db")` with 
   `engine = create_engine('postgresql://catalog:catalog@localhost/catalog')`
   
+## Authenticate login through Google
+
+
+## nstall the virtual environment and dependencies
+* While logged in as `grader` Install `$ sudo apt-get install python-pip`
+* Install the virtual environment: `sudo apt-get install python-virtualenv`
+* `cd /var/www/catalog/catalog/`
+* `sudo virtualenv venv`
+* Change the ownership to `grader` `$ sudo chown -R grader:grader venv/`
+* Activate the new environmen `$ source venv/bin/activate`
+* Install needs dependencies:
+```
+pip install httplib2
+pip install requests
+pip install --upgrade oauth2client
+pip install sqlalchemy
+pip install flask
+sudo apt-get install libpq-dev
+pip install psycopg2
+```
+* Run python __init__.py (you will see): `Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)`
+* Deactivate the virtual environment: `deactivate`
+
+ 
