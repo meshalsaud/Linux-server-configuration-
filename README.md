@@ -9,7 +9,10 @@
 * Make VM instances on google cloud
 * on our computer we will generate key pairs $ ssh-keygen 
 * Copy public key on ssh keys part on VM instance
-* contact to the server `$ ssh -i ~/.ssh/my-ssh-key root@35.196.5.159`
+* contact to the server `$ ssh -i ~/.ssh/my-ssh-key meshal@35.196.5.159`
+* After make garder user log into grader VM 
+* Create a new directory called ~/.ssh (mkdir .ssh)
+* Run sudo nano ~/.ssh/authorized_keys and paste the content of public key
 
 ## Secure the server:
 - We need to update & upgrade packegs 
