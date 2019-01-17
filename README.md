@@ -40,4 +40,19 @@ now enable UFW `sudo ufw enable`
 * Under [sshd] change port = ssh by port = 2200.
 * `sudo service fail2ban restart`
 
+## Automatically install updates:
+* `sudo apt-get install unattended-upgrades`
+* `sudo dpkg-reconfigure -plow unattended-upgrades`
+
+## Create Grader user:
+* `$ sudo adduser grader`
+  ### Give `grader` the permission to sudo:
+  * `$ sudo visudo`
+  * Search for the line that looks like this:
+   `root    ALL=(ALL:ALL) ALL`
+  * add grader user:
+   ```
+   root    ALL=(ALL:ALL) ALL
+   grader  ALL=(ALL:ALL) ALL
+   ```
 
