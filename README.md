@@ -33,3 +33,11 @@
 now enable UFW `sudo ufw enable`
 
 ## Use [Fail2Ban](http://www.fail2ban.org/wiki/index.php/Main_Page) to ban attackers:
+* `sudo apt-get install fail2ban`
+* Install sendmail for email notice: `sudo apt-get install sendmail iptables-persistent`
+* Create a copy of a jail file: `sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local`
+* Change `destemail` on jail.local to your email `destemail = useremail@domain`
+* Under [sshd] change port = ssh by port = 2200.
+* `sudo service fail2ban restart`
+
+
