@@ -64,3 +64,20 @@ THEN
 None of them
 UTC
 ```
+
+## Install and configure Apache:
+* While logged in as grader `$ sudo apt-get install apache2` 
+* Install mod_wsgi `$ sudo apt-get install python-setuptools libapache2-mod-wsgi`
+* `$ sudo service apache2 restart`
+
+## Install and configure PostgreSQL
+* While logged in as grader `$ sudo apt-get install postgresql`
+* Switch to the postgres `$ sudo su - postgres`
+* `psql`
+* CREATE ROLE catalog WITH LOGIN PASSWORD 'catalog';
+* ALTER ROLE catalog CREATEDB;
+* See list current roles and their attributes: # \du;
+* REVOKE ALL ON SCHEMA public FROM public;
+* GRANT ALL ON SCHEMA public TO catalog;
+* `\q` then `exit`
+* Run `$ python database_setup.py`
