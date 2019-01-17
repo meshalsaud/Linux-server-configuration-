@@ -114,6 +114,9 @@ catalog  ALL=(ALL:ALL) ALL
 * creat Oauth client ID
 * http://35.196.5.159.xip.io add this uri to authorized JavaScript origins
 * add http://35.196.5.159.xip.io/login and http://35.196.5.159.xip.io/gconnect to Authorized redirect URIs
+* copy `client_secrets.json` content and replace it with same file in `/var/www/catalog/catalog/client_secrets.json`
+* on `__init__.py` change path of `client_secrets.json` to `/var/www/catalog/catalog/client_secrets.json`
+* on `login.html` replace client_id with new client_id
 
 ## nstall the virtual environment and dependencies
 * While logged in as `grader` Install `$ sudo apt-get install python-pip`
