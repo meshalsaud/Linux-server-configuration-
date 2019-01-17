@@ -183,7 +183,16 @@ application.secret_key ='super-secret-key'
 ```
 * sudo service apache2 restart
 
-### Disable the default Apache site
+## Disable the default Apache site
 * `sudo a2dissite 000-default.conf`
 * `sudo service apache2 reload`
 
+## some Instructions :
+* You need data for your app so on my case I run categories.py that is contain data
+* run `sudo tail -f /var/log/apache2/error.log  ` to see error on the server 
+* Always use command `sudo service apache2 resatrt` to restart apache server 
+
+## Great people write great README :
+* (https://github.com/boisalai/udacity-linux-server-configuration)
+* (https://github.com/stueken/FSND-P5_Linux-Server-Configuration)
+* (https://github.com/rrjoson/udacity-linux-server-configuration)
