@@ -101,4 +101,11 @@ catalog  ALL=(ALL:ALL) ALL
 ## Deploy  Item Catalog project:
 * create `/var/www/catalog/`
 * `cd /var/www/catalog`
-* `sudo git clone 
+* `sudo git clone https://github.com/meshalsaud/Item-Catalog-Project.git catalog`
+* `cd /var/www` change the ownership of the catalog to grader `sudo chown -R grader:grader catalog`
+* `cd /var/www/catalog/catalog`
+* Rename the `application.py` file to `__init__.py` using: `mv application.py __init__.py`
+* In` __init__.py` replace `app.run(host="0.0.0.0", port=8000, debug=True)` with `app.run()`
+*  In `database.py` replace `engine = create_engine("sqlite:///catalog.db")` with 
+  `engine = create_engine('postgresql://catalog:catalog@localhost/catalog')`
+  
